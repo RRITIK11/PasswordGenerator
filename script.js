@@ -10,7 +10,7 @@ const symbolsCheck = document.querySelector("#symbols");
 const indicator = document.querySelector("[data-indicator]");
 const generateBtn = document.querySelector(".generateBtn");
 const allCheckBox = document.querySelectorAll("input[type=checkbox]");
-const symbols = '~`!@#$%^&*\()_+{}|:"<>?-=[];,./';
+const symbols = '~`!@#$%^&*\\()_+{}|:"<\'>?-=[];,./';
 
 let password = "";
 let passwordLength = 10;
@@ -22,17 +22,20 @@ handleSlider();
 function handleSlider(){
     inputSlider.value = passwordLength;
     lengthDisplay.innerText = passwordLength;
+    const min = inputSlider.min;
+    const max = inputSlider.max;
+    inputSlider.style.backgroundSize = ( (passwordLength - min)*100/(max - min)) + "% 100%"
 }
-console.log("Starting the journey...");
 function setIndicator(color){
     indicator.style.backgroundColor = color;
     // shadow
+    indicator.style.boxShadow = `0px 0px 12px 1px ${color}`;
 }
 function getRandomInt(min , max){
     return Math.floor(Math.random()*(max-min)) + min;
 }
 function generateRandomNumber() {
-    return getRandomInt(0,9);
+    return getRandomInt(0,10);
 }
 function generateLowerCase(){
     return String.fromCharCode(getRandomInt(97,123));

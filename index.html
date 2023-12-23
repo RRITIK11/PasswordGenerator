@@ -4,59 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
-    <link rel="stylesheet" href="./stlyle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;600&display=swap"
+      rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Wrapper -->
-    <div class="wrapper bg-emerald-800 overflow-hidden h-screen w-screen flex items-center justify-center">
-        <div class="container border-2 w-1/5 flex flex-col p-2 bg-stone-600">
-            <h1 class="text-center font-bold text-white text-lg mb-2">PASSWORD GENERATOR</h1>
-            <!-- section 1 -->
-            <div class="display flex space-x-0 h-8">
+    <div class="wrapper">
+        <!-- container -->
+        <div class="container">
 
-                <input readonly placeholder="Password" type="text" data-passwordDisplay >
-
+            <!-- heading -->
+            <h1 class="heading ">Password Generator</h1>
+            <!-- display section -->
+            <div class="display-container">
+                <input readonly class="display" placeholder="Password" type="text" data-passwordDisplay >
                 <button class="copyBtn" data-copy>
                     <span class="tooltip" data-copyMsg></span>
-                    <img src="./assets/copy.svg" class="h-8" alt="copy" >
+                    <img src="./assets/copy.svg" alt="copy" width="23" height="23">
                 </button>
             </div>
-            <!-- section 2 -->
-            <div>
+
+            <!--password adjusment section-->
+            <div class="input-container">
                 <!-- Password length  -->
-                <div class="flex justify-between mt-1" >
-                    <p >Password length</p>
+                <div class="length-container" >
+                    <p>Password length</p>
                     <p data-lengthNumber>10</p>
                 </div>
 
                 <!-- slider -->
-                <input type="range" min="1" max="20" value="10" class="slider w-full " step="1" data-lengthSlider>
+                <input type="range" min="1" max="20" value="10" class="slider" step="1" data-lengthSlider>
 
                 <!-- checkbox -->
-                <div class="flex flex-col items-start gap-y-2">
-                    <div>
+                <div>
+                    <div class="check">
                         <input type="checkbox" id="uppercase" name="uppercase">
                         <label for="uppercase">Include Uppercase Letter</label>
                     </div>
-                    <div><input type="checkbox" name="lowercase" id="lowercase">
+                    <div class="check">
+                        <input type="checkbox" name="lowercase" id="lowercase">
                         <label for="lowercase" >Include lowercase Letter</label>
                     </div>
-                    <div>
+                    <div class="check">
                         <input type="checkbox" name="numbers" id="numbers">
                         <label for="numbers">Include numbers</label>
                     </div>
-                    <div>
+                    <div class="check">
                         <input type="checkbox" name="symbols" id="symbols">
                         <label for="symbols">Include symbols</label>
                     </div>                    
                 </div>
 
                 <!-- Strength -->
-                <div class="flex flex-row justify-between items-center">
+                <div class="strength-container">
                     <p>Strength</p>
-                    <div class="bg-red-600 h-4 w-4 rounded-xl" data-indicator></div>
+                    <div class="indicator" data-indicator></div>
                 </div>
-                <button class="text-center w-full generateBtn">Generator Password</button>
+                <!-- Generate Button -->
+                <button class="generateBtn">Generator Password</button>
             </div>
 
         </div>
